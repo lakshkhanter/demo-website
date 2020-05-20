@@ -31,15 +31,6 @@ class Contact extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        FM.trackCustomEvent("Added to cart",
-            {
-                "email": "david.thompson@sample.com",
-                "price": 100.21,
-                "currency": "USD",
-                "is_mobile_transaction": true,
-                "return date": "2019-12-30"
-            })
-
         if (!this.state.submitDisabled) {
             this.setState({
                 submitDisabled: true
@@ -49,6 +40,15 @@ class Contact extends React.Component {
                 email = encodeURI(this.dataEmail.value),
                 //body = `name=${name}&email=${email}`;
                 body = "";
+
+                FM.trackCustomEvent("Added to cart",
+            {
+                "email": email,
+                "price": 100.21,
+                "currency": "USD",
+                "is_mobile_transaction": true,
+                "return date": "2019-12-30"
+            })
 
             fetch(this.props.contact.api_url, {
                 method: "post",
