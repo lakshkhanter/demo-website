@@ -29,7 +29,7 @@ function Header() {
                 href="https://fonts.googleapis.com/css?family=Work+Sans:800|Poppins&display=swap"
                 rel="stylesheet"
             />
-            {/* <script src='//cdn.freshmarketer.com/620603/1652258.js'></script> */}
+            <script src='//cdn.freshmarketer.com/620603/1652258.js'></script>
         </Helmet>
     );
 }
