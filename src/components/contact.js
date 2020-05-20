@@ -30,6 +30,16 @@ class Contact extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+
+        FM.trackCustomEvent("Added to cart",
+            {
+                "email": "david.thompson@sample.com",
+                "price": 100.21,
+                "currency": "USD",
+                "is_mobile_transaction": true,
+                "return date": "2019-12-30"
+            })
+
         if (!this.state.submitDisabled) {
             this.setState({
                 submitDisabled: true

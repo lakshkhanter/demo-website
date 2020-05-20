@@ -31,20 +31,12 @@ class IndexPage extends React.Component {
     componentDidMount() {
 
         //Freshmarketer
-        // (function() {
-        //     window.zarget=true;
-        //     var protocol = ('https:' == document.location.protocol ? 'https:' : 'http:');
-        //     var scriptTag = document.createElement('script');
-        //     scriptTag.type = 'text/javascript';
-        //     scriptTag.async = true;
-        //     scriptTag.src = protocol +'//cdn.freshmarketer.com/620603/1652258.js';
-        //     var s = document.getElementsByTagName('script')[0];
-        //     s.parentNode.insertBefore(scriptTag, s);
-        // })();
-        // function zargetTimeout() {
-        //     window.zarget = false;
-        // }
-        // window.zargetTimer = setTimeout(zargetTimeout, 3000);
+        const script = document.createElement("script");
+
+        script.src = "//cdn.freshmarketer.com/620603/1652258.js";
+        script.async = true;
+
+        document.body.appendChild(script);
 
         this.setWindowHeight();
 
