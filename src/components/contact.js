@@ -37,8 +37,8 @@ class Contact extends React.Component {
 
             let name = encodeURI(this.dataName.value),
                 email = encodeURI(this.dataEmail.value),
-                message = encodeURI(this.dataMessage.value),
-                body = `name=${name}&email=${email}&message=${message}`;
+                //body = `name=${name}&email=${email}`;
+                body = "";
 
             fetch(this.props.contact.api_url, {
                 method: "post",
@@ -53,7 +53,9 @@ class Contact extends React.Component {
                             submitDisabled: false
                         });
                         this.resMessage.style.opacity = 1;
-                        if (result.response === "error") {
+                        console.log(result)
+                        if (result.error) {
+                            console.log("true");
                             this.resMessage.innerHTML =
                                 "There was an error in sending the message";
                             this.resMessage.classList.add("color-error");
@@ -64,7 +66,6 @@ class Contact extends React.Component {
                         }
                         this.dataName.value = "";
                         this.dataEmail.value = "";
-                        this.dataMessage.value = "";
                         let _this = this;
                         setTimeout(function() {
                             _this.resMessage.style.opacity = 0;
@@ -147,26 +148,6 @@ class Contact extends React.Component {
                                                 className="field-box"
                                                 name="email"
                                                 id="email"
-                                                required
-                                            />
-                                        </div>
-                                    </label>
-                                </div>
-                                <div className="field">
-                                    <label>
-                                        <span className="label text-tertiary">
-                                            Message
-                                        </span>
-                                        <div className="input-border">
-                                            <textarea
-                                                style={{ overflowY: "hidden" }}
-                                                ref={c =>
-                                                    (this.dataMessage = c)
-                                                }
-                                                className="field-box"
-                                                onChange={this.textAreaInput}
-                                                name="message"
-                                                id="message"
                                                 required
                                             />
                                         </div>
